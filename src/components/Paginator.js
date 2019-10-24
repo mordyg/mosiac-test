@@ -3,9 +3,8 @@ import PropTypes from 'prop-types'
 
 const Paginator = ({ pageNumber, totalPosts, clickHandler }) => {
   const firstNum = 1;
-  //const lastNum = Math.floor(totalPosts/10)-1;
-  const lastNum =10; //developer accounts cannot go past page 10
-
+  //const lastNum = Math.floor(totalPosts/10)-1; //developer accounts cannot go past page 10
+  const lastNum =10;
   return <span>
       <em> Showing {10*(pageNumber-1)+1}-{10*pageNumber} of {totalPosts}</em><br/>
       {pageNumber>firstNum+1

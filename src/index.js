@@ -8,7 +8,6 @@ import App from './containers/App'
 
 const middleware = [ thunk ]
 
-
 const store = createStore(
   reducer,
   applyMiddleware(...middleware)

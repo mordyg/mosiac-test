@@ -1,10 +1,10 @@
 export const REQUEST_POSTS = 'REQUEST_POSTS'
 export const RECEIVE_POSTS = 'RECEIVE_POSTS'
 export const INVALIDATE_CURRENT = 'INVALIDATE_CURRENT'
-
 export const SET_SEARCH_TERM = 'SET_SEARCH_TERM'
 export const SET_PAGE_NUMBER = 'SET_PAGE_NUMBER'
 
+//pure actions
 export const setSearchTerm = searchTerm => ({
   type: SET_SEARCH_TERM,
   term: searchTerm
@@ -43,9 +43,9 @@ const fetchPosts = (term, pageNumber) => dispatch => {
     .then(json =>  dispatch(receivePosts(json)))
 }
 
-
+//check if we are in the middle of looking for new posts.
 const shouldFetchPosts = (state) => {
-  const posts = state.newsArticles;
+  const posts = state.postStore;
   if (!posts) {
     return true
   }
@@ -55,8 +55,9 @@ const shouldFetchPosts = (state) => {
   return posts.didInvalidate
 }
 
+//handler for the UI
 export const fetchPostsIfNeeded =  () => (dispatch, getState) => {
   if (shouldFetchPosts(getState())) {
-    return dispatch(fetchPosts(getState().selectedTerm.term, getState().newsArticles.pageNumber))
+    return dispatch(fetchPosts(getState().searchTermStore.term, getState().postStore.pageNumber))
   }
 }

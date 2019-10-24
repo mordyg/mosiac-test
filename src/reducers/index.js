@@ -7,7 +7,7 @@ import {
   SET_PAGE_NUMBER,
 } from '../actions'
 
-const selectedTerm= (state ={term:'apple'}, action) => {
+const searchTermStore= (state ={term:'apple'}, action) => {
   console.log(action);
   switch (action.type) {
     case SET_SEARCH_TERM:
@@ -17,7 +17,7 @@ const selectedTerm= (state ={term:'apple'}, action) => {
   }
 }
 
-const newsArticles = (state = {
+const postStore = (state = {
   isFetching: false,
   didInvalidate: true,
   posts: [],
@@ -56,8 +56,8 @@ const newsArticles = (state = {
 }
 
 const rootReducer = combineReducers({
-  newsArticles,
-  selectedTerm
+  searchTermStore,
+  postStore
 })
 
 export default rootReducer

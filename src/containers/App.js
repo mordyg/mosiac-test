@@ -35,20 +35,16 @@ class App extends Component {
 
   handleRefreshClick = e => {
     e.preventDefault()
-
     const { dispatch } = this.props
     dispatch(invalidateCurrent())
-    //reset page number when getting a new search term
-    dispatch(setPageNumber(1));
+    dispatch(setPageNumber(1));    //reset page number when getting a new search term
     dispatch(fetchPostsIfNeeded())
   }
 
   handlePageChange = (pageNumber) => {
     const { dispatch } = this.props
-
     dispatch(invalidateCurrent())
-    //move the page number
-    dispatch(setPageNumber(pageNumber));
+    dispatch(setPageNumber(pageNumber));    //move the page number
     dispatch(fetchPostsIfNeeded())
   }
 
@@ -84,20 +80,20 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
-  const { selectedTerm, newsArticles } = state
+  const { searchTermStore, postStore } = state
   const {
     isFetching,
     lastUpdated,
     posts,
     pageNumber,
     totalPosts
-  } = newsArticles || {
+  } = postStore || {
     isFetching: true,
     posts: [],
     pageNumber:1,
     totalPosts:0.
   }
-  let searchTerm = selectedTerm.term;
+  let searchTerm = searchTermStore.term;
   return {
     searchTerm,
     posts,

@@ -1,8 +1,12 @@
-# Redux Async Example
+# Mosaic Test
 
-This project template was built with [Create React App](https://github.com/facebookincubator/create-react-app), which provides a simple way to start React projects with no build configuration needed.
+Note that newsapi.org does not include a way for free developers to search past 100 articles, so the code blocks it ther
 
-Projects built with Create-React-App include support for ES6 syntax, as well as several unofficial / not-yet-final forms of Javascript syntax such as Class Properties and JSX. See the list of [language features and polyfills supported by Create-React-App](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#supported-language-features-and-polyfills) for more information.
+before starting the server add a .env in the root folder with the following instructions
+```
+REACT_APP_NEWS_API_KEY = xxxxxxxxxxxx
+```
+
 
 ## Available Scripts
 
